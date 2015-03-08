@@ -4,10 +4,10 @@ import datetime
 import time
 import urlparse
 
-CONSUMER_KEY = "x2hJ43qXaVqaHtmG3kHCPVYFb"
-CONSUMER_SECRET = "ttPfo8jjwQpytiSLvH24cVYMfpAyZnObyLD4LKzknOgMaskXYG"
-OAUTH_TOKEN = "36640733-VOc6TtBu7PbXGloxy5JpAhcn3QuA8Z8m3meypK9Kw"
-OAUTH_TOKEN_SECRET = "DLPt8Bu93rQT2VlevlS715iUOAws0aTvxyiJLvCPjbOlM"
+CONSUMER_KEY = "--------------------------------------"
+CONSUMER_SECRET = "------------"
+OAUTH_TOKEN = "------------------"
+OAUTH_TOKEN_SECRET = "-------------------"
 
 auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
 
