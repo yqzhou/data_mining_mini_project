@@ -4,9 +4,7 @@ import re
 from collections import Counter
 import matplotlib.pyplot as plt
 import numpy as np
-from pylab import yticks
 import matplotlib
-import scipy
 
 
 locations = ["processed_Duke.txt", "processed_UNC.txt"]
