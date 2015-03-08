@@ -7,4 +7,5 @@ UNC-Duke-Game(Mar 7 2015)
 - extract data between 8pm Mar 7 til 1am Mar 8
 - compare # of tweets vs time (two schools)
 - track the change of tweets number during the game
-- display top 10 popular hashtags for two schools 
+- display top 10 popular hashtags for two schools-
+- （future direction) process and display location/geo information, track number of tweets(daily)
