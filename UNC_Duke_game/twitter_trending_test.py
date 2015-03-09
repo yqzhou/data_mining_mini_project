@@ -24,7 +24,7 @@ negative = " :("
 
 
 def tweets_retrive(q, last_id, f):
-    search_result = twitter_api.search.tweets(q = q, include_entities = 1, count = 100)
+    search_result = twitter_api.search.tweets(q = q, include_entities = 1, max_id= last_id, count = 100)
     statuses= search_result['statuses']
     
     for _ in range(0, 50):
