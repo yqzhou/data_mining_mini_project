@@ -6,20 +6,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib
 
-
+#two file names
 locations = ["processed_Duke.txt", "processed_UNC.txt"]
 summaries = []
 
+#analyze each school
 for location in locations:
     summary = {}
     for line in  open(location, "r"):
+        #clean up data
         data = json.loads(line.rstrip())
+        #determine the time of the tweets by time
         date =data['timestamp']
         date = re.search(r'(.)*\+0000', date)
         date = date.group(0)[:-6]
         date = time.strptime(date, "%a %b %d %H:%M:%S")
+        #only record time from 8pm to 1am which is recorded in standard time in the system
         if date.tm_mday != 8 or date.tm_hour > 5 or date.tm_hour < 1:
             continue
+        #time slot ordered by time, zfill convert 1 into 01 which makes sure the order of the time as string
         timeslot = str(date.tm_hour) + ":" +  str(date.tm_min) .zfill(2)
         if timeslot in summary.keys():
             summary[timeslot]["counts"] += 1
@@ -32,7 +37,7 @@ for location in locations:
             summary[timeslot] = {"counts": 1, "hashtags": [], "location": [], "geo": []}
     summaries.append(summary)
 
-#print summary
+#plot part, subplot2grid is to make subplots, 3*2 means a grid of 2 cols and 3 rows, colspan = 2 means it takes 2 cols
 ax1=plt.subplot2grid((3,2), (0,0), colspan=2)
 ax2= plt.subplot2grid((3,2), (1,0), colspan=2)
 ax3= plt.subplot2grid((3,2), (2,0))
@@ -50,6 +55,7 @@ for summary in summaries:
     total_count.append(counts)
     counter = {}
     hashtags = sum(hashtags, [])
+    #use collections.counter to get the most common hashtags
     hash_sum = Counter(hashtags)
     hash_name = []
     hash_count = []
@@ -60,13 +66,13 @@ for summary in summaries:
         hash_count.append(count)
 
     order_time = sorted(list(counts.keys()))
-    #print order_time
+    #picture 1
     order_count = [counts[i] for i in order_time]
     ax1.set_title("Tweets analysis by retrieving hashtags during UNC-Duke Game Mar 7 2015")
     ax1.plot([x for x in range(len(order_time))], order_count,  linestyle = format["line"][j], color = format["color"][j])
     ax1.set_ylabel("Number of tweets")
     ax1.set_xlabel("Time(min) starts from 8pm")
-
+    #barplot for hashtags
     if j == 0:
         ax3.barh( [i for i in range(10)], hash_count, height=1, color = format["color"][j], align="center")
         ax3.set_yticks(range(len(hash_name)))
@@ -87,6 +93,7 @@ for key in total_count[0].keys():
     if key in total_count[1]:
         diff[key] = total_count[0][key] - total_count[1][key]
 
+#figure 2, fill differences, positive as blue and negative as skyblue
 diff_time = sorted(list(diff.keys()))
 diff_count = [diff[i] for i in diff_time]
 x = [i for i in range(len(diff_count))]
@@ -97,8 +104,10 @@ ax2.set_xlabel("Time(min) starts from 8pm")
 ax2.plot(x, y1, x, y2, color="black")
 ax2.fill_between(x, y1, y2, where=y1>=y2, interpolate=True, color='blue')
 ax2.fill_between(x, y1, y2, where=y1<=y2, interpolate=True, color='skyblue')
+#add first half and second half squares
 ax2.axvspan(70, 113, facecolor = 'yellow', alpha = 0.2)
 ax2.axvspan(130, 193, facecolor='yellow', alpha = 0.2)
+#add vertical line
 ax2.axvline(x=156, linewidth=2, color='r')
 ax2.annotate('D started to lead', xy=(156, 500),  xycoords='data',  xytext=(20, 20), textcoords='offset points', arrowprops=dict(arrowstyle="->"))
 ax2.annotate('First Half', xy=(75, 900), xytext=(0,0), xycoords='data', textcoords='offset points')
