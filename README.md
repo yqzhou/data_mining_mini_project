@@ -1,6 +1,6 @@
-# mini-projects on social data mining
+# mini-projects on data mining
 
-UNC-Duke-Game(Mar 7 2015)
+UNC-Duke-Game(Mar 7 2015) - twitter data
 - tools: python, library-twitter, matplotlib, numpy, json, pandas, folium
 - twitter API, search with sets of hashtags representing two schools
 - fetch data (actual data from ~Mar 1 to Mar 8 morning), preprocessed with only text, hashtags, location and geo information
