@@ -1,6 +1,6 @@
 # mini-projects on data mining
 
-1. UNC-Duke-Game(Mar 7 2015) - twitter
+1) UNC-Duke-Game(Mar 7 2015) - twitter
 - tools: python, library-twitter, matplotlib, numpy, json, pandas, folium
 - twitter API, search with sets of hashtags representing two schools
 - fetch data (actual data from ~Mar 1 to Mar 8 morning), preprocessed with only text, hashtags, location and geo information
@@ -15,7 +15,7 @@
 - （future direction) process and display location/geo information, track number of tweets(daily)
 
 
-2. CART-Therapy-Biotech-Stock_Tracking(2 year) - Yahoo finance
+2) CART-Therapy-Biotech-Stock_Tracking(2 year) - Yahoo finance
 - tools: python, pandas, matplotlib, yahoo-finance
 - yahoo-finance API as data source, focusing on companies involving CAR-T immunotherapy, analyzing their performance against average biotech industry
 - extract data from Oct 2013 (when JUNO went IPO) till Aug 1, 2015
