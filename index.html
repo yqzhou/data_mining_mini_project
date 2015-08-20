@@ -20,23 +20,41 @@
 
     <section class="main-content">
       <h1>
-<a id="mini-project-on-data-mining" class="anchor" href="#mini-project-on-data-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mini-project on data mining</h1>
+<a id="mini-projects-on-data-mining" class="anchor" href="#mini-projects-on-data-mining" aria-hidden="true"><span class="octicon octicon-link"></span></a>mini-projects on data mining</h1>
 
-<p>[1] UNC-Duke-Game(Mar 7 2015)</p>
+<p>1) UNC-Duke-Game(Mar 7 2015) - twitter</p>
 
 <ul>
-<li>tools: python, library used - twitter, matplotlib, numpy, json, pandas</li>
+<li>tools: python, library-twitter, matplotlib, numpy, json, pandas, folium</li>
 <li>twitter API, search with sets of hashtags representing two schools</li>
 <li>fetch data (actual data from ~Mar 1 to Mar 8 morning), preprocessed with only text, hashtags, location and geo information</li>
 <li>extract data between 8pm Mar 7 til 1am Mar 8</li>
 <li>compare # of tweets vs time (two schools)</li>
 <li>track the change of tweets number during the game</li>
-<li>display top 10 popular hashtags for two schools</li>
-<li>parse and collect the location information from tweeted users for individual school</li>
-<li>future direction: process and display location/geo information, track number of tweets(daily)</li>
+<li>display top 10 popular hashtags for two schools-</li>
+<li>parse the location information from users who tweets for individual school
+
+<ul>
+<li>by matching state names</li>
+<li>by matching city name to state name</li>
+<li>the final " state: #of tweets" information was exported to school_name.csv file</li>
+</ul>
+</li>
+<li>（future direction) process and display location/geo information, track number of tweets(daily)</li>
 </ul>
 
-<p><a href="https://raw.githubusercontent.com/yqzhou/social_data_mining/master/UNC_Duke_game/figure_1.png">Visualization 1 - Game day tweets</a></p>
+<p><img src="https://github.com/yqzhou/data_mining_mini_project/blob/master/UNC_Duke_game/figure_1.png" alt="Analyzed data"></p>
+
+<p>2) CART-Therapy-Biotech-Stock_Tracking(2 year) - Yahoo finance</p>
+
+<ul>
+<li>tools: python, pandas, matplotlib, yahoo-finance</li>
+<li>yahoo-finance API as data source, focusing on companies involving CAR-T immunotherapy, analyzing their performance against average biotech industry</li>
+<li>extract data from Oct 2013 (when JUNO went IPO) till Aug 1, 2015</li>
+<li>Compare stock price, market share changes of the certain companies</li>
+<li>Compare the performance of the companies against mean of the whole biotech industry</li>
+<li>Analyzing the influence of the releases of clinical trial data on stock price</li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/yqzhou/data_mining_mini_project">Data Mining Mini Projects</a> is maintained by <a href="https://github.com/yqzhou">yqzhou</a>.</span>
